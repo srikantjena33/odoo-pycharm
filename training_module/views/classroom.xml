@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    #Menu
+    <menuitem
+        name = "LD Classrooms"
+        id = "menu_ld_classroom_main"
+        sequence = "33" />
+
+    <menuitem
+            parent="menu_ld_classroom_main"
+            name="Students data"
+            id="menu_ld_classroom_students"
+            action="ld_student_menu_action" />
+
+         <record id="ld_student_menu_action" model="ir.actions.act_window">
+                <field name="name">Students Info</field>
+                <field name="res_model">ld.classroom</field>
+                <field name="view_mode">tree,form</field>
+         </record>
+
+
+    #TREE VIEW
+    <record id="ld_student_view_tree" model="ir.ui.view">
+        <field name="name">ld.classroom.view.tree</field>
+        <field name="model">ld.classroom</field>
+        <field name="arch" type="xml">
+            <tree default_order="create_date desc">
+                <field name="id_card_num"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="age"/>
+                <field name="course_id"/>
+            </tree>
+        </field>
+    </record>
+
+    #FORM VIEW
+    <record id="ld_student_view_form" model="ir.ui.view">
+        <field name="name">ld.classroom.view.tree</field>
+        <field name="model">ld.classroom</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Register Fees" class="oe_highlight"
+                            name="register_student_fees" type="object"/>
+<!--                    <button string="Update State" class="oe_highlight"-->
+<!--                            name="update_student_state" type="object"/>-->
+                    <button class="btn btn-primary" name="action_send_mail" type="object"
+                            string="Send Email"/>
+                    <field name="state" widget="statusbar" nolabel="1"/>
+               </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="id_card_num" attrs="{'invisible': [('state', '=', '1')]}" />
+                        <field name="phone" attrs="{'required': [('state', '=', '1')]}" />
+                        <field name="age"/>
+                        <field name="course_id" attrs="{'readonly': [('state', '=', '3')]}"/>
+                        <field name="course_tags"/>
+                        <field name="date"/>
+                        <field name="birth_date"/>
+                        <field name="age_calculated"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

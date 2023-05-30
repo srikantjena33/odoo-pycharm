@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ld_classroom.ld_classroom,ld_classroom,model_ld_classroom,,1,1,1,1
+ld_courses.ld_courses,ld_courses,model_ld_courses,,1,1,1,1
+ld_course_tags.ld_course_tags,ld_course_tags,model_ld_courses_tag,,1,1,1,1
+ld_fees_register.ld_fees_register,ld_fees_register,model_ld_fees_register,,1,1,1,1

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lld_fees_register_view_form" model="ir.ui.view">
+        <field name="name">ld.fees.register.view.form</field>
+        <field name="model">ld.fees.register</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="amount"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Register fees" class="btn-primary" type="object"
+                            name="register_fees"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

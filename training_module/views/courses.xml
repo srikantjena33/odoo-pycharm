@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        #FORM VIEW
+        <record id="ld_course_view_form" model="ir.ui.view">
+            <field name="name">ld.courses.view.tree</field>
+            <field name="model">ld.courses</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    <button string="Change Course Level" class="oe_highlight"
+                            name="update_course_level" type="object"/>
+                    </header>
+                    <sheet>
+                       <group>
+                        <group>
+                            <field name="course_name"/>
+                            <field name="trainer_name"/>
+                            <field name="duration"/>
+                            <field name="course_content"/>ll
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="course_level" widget="badge"/>
+                            <field name="tag_count"/>
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        #TREE VIEW
+        <record id="ld_course_view_tree" model="ir.ui.view">
+            <field name="name">ld.courses.view.tree</field>
+            <field name="model">ld.courses</field>
+            <field name="arch" type="xml">
+                <tree default_order="create_date desc">
+                    <field name="course_name"/>
+                    <field name="trainer_name"/>
+                    <field name="duration"/>
+                </tree>
+            </field>
+        </record>
+
+        #ACTION SECTION
+        <record id="ld_course_menu_action" model="ir.actions.act_window">
+            <field name="name">Course Info</field>
+            <field name="res_model">ld.courses</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem parent="training_module.menu_ld_classroom_main" name="Courses"
+            id="menu_ld_courses" action="ld_course_menu_action"/>
+
+</odoo>

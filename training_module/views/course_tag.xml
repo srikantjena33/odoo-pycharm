@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ld_courses_tag_view_form" model="ir.ui.view">
+        <field name="name">ld.courses.tag.view.tree</field>
+        <field name="model">ld.courses.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="tag_name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ld_courses_tag_view_tree" model="ir.ui.view">
+        <field name="name">ld.courses.tag.view.tree</field>
+        <field name="model">ld.courses.tag</field>
+        <field name="arch" type="xml">
+            <tree default_order="create_date desc">
+                <field name="tag_name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="ld_courses_tag_menu_action" model="ir.actions.act_window">
+        <field name="name">Course Tags</field>
+        <field name="res_model">ld.courses.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem parent="training_module.menu_ld_classroom_main" name="Course Tags"
+        id="menu_ld_courses_tag" action="ld_courses_tag_menu_action" groups="training_module.group_ld_classroom_clerks" />
+
+</odoo>
